@@ -22,14 +22,10 @@ public class LoginController {
 
     @PostMapping("login")
     public ResponseEntity<ResponseDTO> login(@RequestBody LoginDTO loginDTO) {
-        if (loginService.checkUsernameExists(loginDTO.username)) {
-            if (loginService.checkUsernameAndPassword(loginDTO.username, loginDTO.password)) {
-                return ResponseDTO.success(playerService.findPlayerId(loginDTO.username));
-            } else {
-                return ResponseDTO.send(Response.WRONG_CREDENTIALS);
-            }
-        } else {
-            return ResponseDTO.send(Response.USERNAME_DOES_NOT_EXIST);
+        if(loginService.checkUsernameExists(loginDTO.username) && loginService.checkUsernameAndPassword(loginDTO.username, loginDTO.password)){
+            return ResponseDTO.success(playerService.findPlayerId(loginDTO.username));
+        }else{
+            return ResponseDTO.send(Response.WRONG_CREDENTIALS);
         }
     }
 

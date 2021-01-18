@@ -26,12 +26,8 @@ public class ResponseDTO {
         return ResponseEntity.ok(new ResponseDTO(response));
     }
 
-    public static ResponseEntity<ResponseDTO> success() {
-        return ResponseEntity.ok(new ResponseDTO(Response.SUCCES));
-    }
-
     public static ResponseEntity<ResponseDTO> success(Object object) {
-        return ResponseEntity.ok(new ResponseDTO(Response.SUCCES, object));
+        return ResponseEntity.ok(new ResponseDTO(Response.SUCCESS, object));
     }
 
     public static ResponseEntity<ResponseDTO> error() {

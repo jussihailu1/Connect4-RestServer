@@ -1,8 +1,8 @@
 package nl.fhict.restserver.enums;
 
 public enum Response {
-    //	Succes responses:
-    SUCCES,
+    //	Success responses:
+    SUCCESS,
 
     //	Error responses:
     USERNAME_DOES_NOT_EXIST,
